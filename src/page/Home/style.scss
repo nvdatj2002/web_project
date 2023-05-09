@@ -1,12 +1,270 @@
+// start css banner area
 .banner-area {
-    height: 360px;
-    width: 80%;
+    display: flex;
+    height: 760px;
     margin: 0 auto;
-    background: url(../../img/Banner/banner-bg.jpg) center no-repeat
+    background: url(../../img/Banner/banner-bg.jpg) center no-repeat;
+    background-size: cover;
+    align-items: center;
 }
+
 .container-banner {
+    width: 80%;
     display: flex;
     align-items: center;
     margin: 0 auto;
+    padding: 20px;
+}
+
+.banner-content {
+    padding: 20px;
+}
+
+.banner-content h1 {
+    font-size: 50px;
+}
+
+.banner-content p {
+    font-size: 22px;
+    color: #333;
+    opacity: 0.8;
+}
+
+// end css banner area
+
+// start css feature area
+.features-area {
+    height: 172px;
+    margin: 100px 0px;
+
+}
+
+.features-area-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    margin: 0 auto;
+    height: 100%;
+    padding: 20px;
+}
+
+.features-area-content--item {
+    padding: 20px 50px;
+    text-align: center;
+    opacity: 0.8;
+}
+
+// end css feature area
+
+// start css category area
+
+.category-area-content {
+    width: 1216px;
+    margin: 0 auto;
+
+}
+.category-area-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 250px 250px;
+    grid-gap: 10px;
+}
+
+.category-area-content-item {
+    height: 100%;
+}
+
+.category-area-content-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.category-area-content-column {
+    position: relative;
+}
+
+.category-area-content-column:first-child {
+    grid-column: 1/3;
+}
+
+.category-area-content-column:nth-child(2) {
+    grid-column: 3/4;
+    grid-row: 1/3;
+}
+
+.category-area-content-column {
+    :hover .category-detail {
+        display: block;
+        top:50%;
+        
+    }
+}
+.category-area-content-column {
+    :hover .overlay{
+        visibility: visible;
+        opacity: 0.5;
+    }
+}
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    visibility: hidden;
    
+}
+.category-detail {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    display: block;
+    top: 100%;
+    transition: top 1s;
+    color: #fff;
+}
+.category-area-content-grid p {
+    text-align: center;
+}
+// end css category area
+
+// start css product area
+.product-area-container {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 60px;
+}
+.product-area-header {
+    text-align: center;
+}
+.product-area-header-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.product-area-header-top div {
+    padding: 0 20px;
+    cursor: pointer;
+}
+.product-area-header-detail {
+    width: 500px;
+    margin: 0 auto;
+}
+.product-area-content {
+    padding-top: 60px;
+}
+.grid-products {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.product-item {
+    border-radius: 4px;
+    overflow: hidden;
+}
+.product-item img {
+    width: 100%;
+}
+.product-details {
+    padding: 4px 0px;
+    font-size: 18px;
+}
+.product-details-botom button {
+    margin: 0 4px;
+    padding: 6px 6px;
+    border: none;
+    cursor: pointer;
+    height: 30px;
+    background-color: #828bb2;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 4px;
+    :hover {
+        background-color: #828bb2;
+        opacity: 0.2;
+    }
+}
+.product-details-botom a {
+    margin: 0 4px;
+    padding: 6px 6px;
+    border: none;
+    cursor: pointer;
+    line-height: 30px;
+    background-color: #828bb2;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 4px;
+    text-decoration: none;
+    :hover {
+        background-color: #333;
+        opacity: 0.2;
+    }
+}
+
+.slick-arrow {
+    background-color: #333 !important;
+    position: absolute !important;
+    top: 46px !important;
+    width: 60px !important; 
+    color:  red !important ;
+    opacity: 0.3 ;
+    height: 40px !important;
+    z-index: 1;
+}
+.slick-next {
+    right: 34% !important;
+    ::before{
+        content: "" !important;
+    }
+}
+
+.slick-prev {
+    left: 34% !important;
+    
+}
+// end css product area
+
+// start css deal hot area
+.deals-hot-area {
+    height: 890px;
+    padding-top: 60px;
+}
+.deals-hot-container {
+    display: flex;
+    height: 890px;
+}
+.deals-hot-left {
+    display: flex;
+    background: url(../../img/exclusive.jpg) center no-repeat;
+    background-size: cover;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+}
+.left-content {
+   color: #fff;
+   text-align: center;
+//    width: 600px;
+}
+.clock {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #333;
+    height: 100px;
+    width: 100%;
+    padding: 0 50px;
+    
+}
+.clock-item::after {
+    width: 1px;
+    background-color: #333;
+    height: 100%;
+}
+.clock h1 {
+    margin: 0;
 }

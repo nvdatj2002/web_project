@@ -5,6 +5,7 @@
     align-items: center;
     position: fixed;
     top: 40px;
+    z-index: 999;
 }
 .container {
     display: flex;
@@ -12,7 +13,7 @@
     margin: 0 auto;
     background-color: #fff;
     height: 100%;
-    width: 70%;
+    width: 80%;
     box-shadow:  0 10px 30px rgba(0, 0, 0, 0.1);
     border-radius: 2px;
 }
@@ -49,7 +50,6 @@
     }
 } 
 .nav-menu ul li a{
-    
     text-decoration: none;
     color: #333;
 }
