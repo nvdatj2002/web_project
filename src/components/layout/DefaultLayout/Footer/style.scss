@@ -1,0 +1,41 @@
+.container-footer {
+    padding: 100px 0;
+    background-color: #222222;
+    color: #fff;
+    
+}
+.footer-content {
+    width: 80%;
+    margin: 0 auto;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 30px;
+}
+.footer-profile-content {
+    >ul {
+        padding-left: 30px;
+        > li {
+            opacity: 0.6;
+        }
+    }
+}
+.footer-support-content {
+    >ul {
+        padding-left: 30px;
+        > li {
+            opacity: 0.6;
+        }
+    }
+}
+.footer-payment-content {
+    > ul{
+        display: flex;
+        list-style: none;
+        
+        >li {
+            padding: 0 6px;
+        }
+    }
+}
