@@ -46,7 +46,7 @@ function Sidebar() {
                                     <ul className={showSubMenu ? "show sub-menu" : "sub-menu"}>
                                         <li className='sub-menu-item'>
                                             <TbClipboardList color='#fff' />
-                                            <NavLink to={"#"}>Tất cả đơn hàng</NavLink>
+                                            <NavLink to={"#"}>Tất cả</NavLink>
                                         </li>
                                         <li className='sub-menu-item'>
                                             <TbClipboardList color='#fff' />

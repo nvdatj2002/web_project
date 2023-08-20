@@ -2,6 +2,7 @@ import Home from "../page/Home";
 import Product from '../page/Products'
 import Dashboard from "../page_manager/Dashboard";
 import ManagerProduct from "../page_manager/manage_products";
+import ProductCreate from "../page_manager/manage_products/ProductCreate";
 
 // cho phép truy cập khi chưa đăng nhập
 const publicRoutes = [
@@ -21,6 +22,9 @@ const privateRoutes = [
     },
     {
         path: '/manager/products', component: ManagerProduct,
+    },
+    {
+        path: '/manager/products/create', component: ProductCreate,
     }
 ]
 

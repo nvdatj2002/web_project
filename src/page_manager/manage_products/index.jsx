@@ -5,14 +5,15 @@ import { FaRegEdit } from 'react-icons/fa'
 import { MdDeleteOutline } from 'react-icons/md'
 import axios from "axios"
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 function ManagerProduct() {
 
     const [products, setProducts] = useState([]);
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        getAllProductAPI();
-    }, [])
+    //     getAllProductAPI();
+    // }, [])
 
     const getAllProductAPI = async () => {
         try {
@@ -69,7 +70,12 @@ function ManagerProduct() {
                                 </Col>
                             </Row>
                         </form>
+                        <Row className='header-btn-create'>
+                            <div className="header-btn-create--item" >
+                                <Link to={"/manager/products/create"}>Thêm sản phẩm mới</Link>
+                            </div>
 
+                        </Row>
                         <Row className='header-start-table'>
                             <Table striped hover >
                                 <thead>
@@ -83,20 +89,32 @@ function ManagerProduct() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                        <tr >
-                                            <td><input type='checkbox'/></td>
-                                            <td><img className='image-product' src='https://myshoes.vn/image/cache/catalog/2023/nike/nk011/giay-nike-court-vision-low-nam-trang-xanh-01-500x500.jpg'></img></td>
-                                            <td > <p>Giày Nike Air Max Command Nam - Xám Xanh</p>
-                                            </td>
+                                    <tr >
+                                        <td><input type='checkbox' /></td>
+                                        <td><img className='image-product' src='https://myshoes.vn/image/cache/catalog/2023/nike/nk011/giay-nike-court-vision-low-nam-trang-xanh-01-500x500.jpg'></img></td>
+                                        <td > <p>Giày Nike Air Max Command Nam - Xám Xanh</p>
+                                        </td>
 
-                                            <td>3.000.000</td>
-                                            <td>2000</td>
-                                            <td>
-                                                <Button  variant="outline-primary"><FaRegEdit /></Button>
-                                                <Button  variant="outline-primary"><MdDeleteOutline /></Button>
-                                            </td>
-                                        </tr>
-                                    
+                                        <td>3.000.000</td>
+                                        <td>2000</td>
+                                        <td>
+                                            <Button variant="outline-primary"><FaRegEdit /></Button>
+                                            <Button variant="outline-primary"><MdDeleteOutline /></Button>
+                                        </td>
+                                    </tr>
+                                    <tr >
+                                        <td><input type='checkbox' /></td>
+                                        <td><img className='image-product' src='https://myshoes.vn/image/cache/catalog/2023/nike/nk011/giay-nike-court-vision-low-nam-trang-xanh-01-500x500.jpg'></img></td>
+                                        <td > <p>Giày Nike Air Max Command Nam - Xám Xanh</p>
+                                        </td>
+
+                                        <td>3.000.000</td>
+                                        <td>2000</td>
+                                        <td>
+                                            <Button variant="outline-primary"><FaRegEdit /></Button>
+                                            <Button variant="outline-primary"><MdDeleteOutline /></Button>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </Table>
                         </Row>

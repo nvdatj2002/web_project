@@ -4,16 +4,24 @@
     padding-left: 10px;
     font-weight: 600;
 }
+
 .header-start-body {
     background-color: #fff;
     height: 60px;
     align-items: center;
 }
+
+.header-start {
+    min-height: 620px;
+    background-color: #fff;
+}
+
 .header-start-body-item {
-   display: flex;
-   align-items: center;
+    display: flex;
+    align-items: center;
     height: 100%;
 }
+
 .header-start-category {
     width: 100%;
     height: 40px;
@@ -21,10 +29,39 @@
     outline: none;
     padding: 0 8px;
 }
+
 .header-start-category-title {
     width: 180px;
     line-height: 40px;
 }
+
 .image-product {
     width: 100px;
+}
+
+.header-btn-create {
+    width: 100%;
+    border-bottom: 0.5px solid #3333;
+}
+
+.header-btn-create--item {
+    height: 60px;
+    margin-top: 10px;
+
+}
+
+.header-btn-create--item {
+    >a {
+        font-size: 14px;
+        border: 1px solid #0d6efd;
+        padding: 10px;
+        color: #0d6efd;
+        border-radius: 4px;
+
+        
+    }
+    :hover {
+        background-color: #0d6efd;
+        color: #fff;
+    }
 }
