@@ -6,41 +6,26 @@ import { MdDeleteOutline } from 'react-icons/md'
 import axios from "axios"
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import callAPI from '../../API/axios';
 function ManagerProduct() {
 
     const [products, setProducts] = useState([]);
 
-    // useEffect(() => {
+    useEffect(() => {
 
-    //     getAllProductAPI();
-    // }, [])
+        getAllProductAPI();
+    }, [])
 
     const getAllProductAPI = async () => {
-        try {
-            const path = 'http://localhost:8080/api/product/getAll';
-            const reponse = await axios.get(path);
-            setProducts(reponse.data)
-        } catch (error) {
-            console.error(error)
-        }
+        const response = await callAPI("/api/product/getAll")
+        console.log(response)
     }
 
     const removeProduct = async (id) => {
-        try {
-            const path = `http://localhost:8080/api/product/remove/${id}`;
-            const reponse = await axios.delete(path);
-            console.log("xoá")
-        } catch (error) {
-            console.error(error)
-        }
+
     }
 
-    const handelDelete = (id) => {
-        console.log(id);
-        const productsNew = products.filter(item => item.id != id);
-        setProducts(productsNew);
-        removeProduct(id);
-    }
+
 
     return (
         <section>
@@ -83,38 +68,29 @@ function ManagerProduct() {
                                         <th>STT</th>
                                         <th>Hình ảnh</th>
                                         <th>Tên </th>
-                                        <th>Giá</th>
+                                        <th>Giá Nhập</th>
+                                        <th>Giá Bán</th>
                                         <th>Số lượng</th>
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr >
-                                        <td><input type='checkbox' /></td>
-                                        <td><img className='image-product' src='https://myshoes.vn/image/cache/catalog/2023/nike/nk011/giay-nike-court-vision-low-nam-trang-xanh-01-500x500.jpg'></img></td>
-                                        <td > <p>Giày Nike Air Max Command Nam - Xám Xanh</p>
-                                        </td>
+                                    {products.map((item) => (
+                                        <tr >
+                                            <td><input type='checkbox' /></td>
+                                            <td><img className='image-product' src='https://myshoes.vn/image/cache/catalog/2023/nike/nk011/giay-nike-court-vision-low-nam-trang-xanh-01-500x500.jpg'></img></td>
+                                            <td > <p>{item.name}</p>
+                                            </td>
 
-                                        <td>3.000.000</td>
-                                        <td>2000</td>
-                                        <td>
-                                            <Button variant="outline-primary"><FaRegEdit /></Button>
-                                            <Button variant="outline-primary"><MdDeleteOutline /></Button>
-                                        </td>
-                                    </tr>
-                                    <tr >
-                                        <td><input type='checkbox' /></td>
-                                        <td><img className='image-product' src='https://myshoes.vn/image/cache/catalog/2023/nike/nk011/giay-nike-court-vision-low-nam-trang-xanh-01-500x500.jpg'></img></td>
-                                        <td > <p>Giày Nike Air Max Command Nam - Xám Xanh</p>
-                                        </td>
-
-                                        <td>3.000.000</td>
-                                        <td>2000</td>
-                                        <td>
-                                            <Button variant="outline-primary"><FaRegEdit /></Button>
-                                            <Button variant="outline-primary"><MdDeleteOutline /></Button>
-                                        </td>
-                                    </tr>
+                                            <td>{item.priceBuy}</td>
+                                            <td>{item.priceSale}</td>
+                                            <td>{item.productDetail}</td>
+                                            <td>
+                                                <Button variant="outline-primary"><FaRegEdit /></Button>
+                                                <Button variant="outline-primary"><MdDeleteOutline /></Button>
+                                            </td>
+                                        </tr>
+                                    ))}
                                 </tbody>
                             </Table>
                         </Row>

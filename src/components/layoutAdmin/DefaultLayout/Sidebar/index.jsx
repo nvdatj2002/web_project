@@ -29,7 +29,7 @@ function Sidebar() {
                             </li>
                             <li className='sidebar-menu-item'>
                                 <TbClipboardList className='menu-item-icon' />
-                                <NavLink className={"sidebar-menu-item-nav"} to={"/manager/products"}>Danh sách sản phẩm</NavLink>
+                                <NavLink className={"sidebar-menu-item-nav"} to={"/manager/products"}>Quản lý sản phẩm</NavLink>
                             </li>
                             <li className='sidebar-menu-item'>
                                 <TbClipboardList className='menu-item-icon' />
