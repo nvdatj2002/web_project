@@ -24,67 +24,46 @@ function Sidebar() {
                     <div className='sidebar-body'>
                         <ul className='sidebar-menu'>
                             <li className='sidebar-menu-item'>
-                                <TbClipboardList className='menu-item-icon' />
-                                <NavLink className={"sidebar-menu-item-nav"} to={"/manager/dashboard"}>Thống kê</NavLink>
-                            </li>
-                            <li className='sidebar-menu-item'>
-                                <TbClipboardList className='menu-item-icon' />
-                                <NavLink className={"sidebar-menu-item-nav"} to={"/manager/products"}>Quản lý sản phẩm</NavLink>
-                            </li>
-                            <li className='sidebar-menu-item'>
-                                <TbClipboardList className='menu-item-icon' />
-                                <NavLink className={"sidebar-menu-item-nav"} to={"#"}>Danh mục sản phẩm</NavLink>
-                            </li>
-                            <li className='sidebar-menu-item'>
-                                <div className='menu-item-bodys' >
-                                    <div className='menu-item-body' onClick={handel}>
-                                        <TbClipboardList className='menu-item-icon' />
-                                        <p className='menu-item-body-text'>Đơn hàng</p>
-                                        <AiOutlineDown className='menu-item-body-icon' color='#fff' />
-                                    </div>
 
-                                    <ul className={showSubMenu ? "show sub-menu" : "sub-menu"}>
-                                        <li className='sub-menu-item'>
-                                            <TbClipboardList color='#fff' />
-                                            <NavLink to={"#"}>Tất cả</NavLink>
-                                        </li>
-                                        <li className='sub-menu-item'>
-                                            <TbClipboardList color='#fff' />
-                                            <NavLink to={"#"}>Chờ xác nhận</NavLink>
-
-                                        </li>
-                                        <li className='sub-menu-item'>
-                                            <TbClipboardList color='#fff' />
-                                            <NavLink to={"#"}>Chờ lấy hàng</NavLink>
-                                        </li>
-                                        <li className='sub-menu-item'>
-                                            <TbClipboardList color='#fff' />
-                                            <NavLink to={"#"}>Đang giao</NavLink>
-                                        </li>
-                                        <li className='sub-menu-item'>
-                                            <TbClipboardList color='#fff' />
-                                            <NavLink to={"#"}>Đã giao</NavLink>
-                                        </li>
-                                        <li className='sub-menu-item'>
-                                            <TbClipboardList color='#fff' />
-                                            <NavLink to={"#"}>Đã huỷ</NavLink>
-                                        </li>
-                                    </ul>
-                                </div>
+                                <NavLink className={"sidebar-menu-item-nav"} to={"/manager/dashboard"}>
+                                    <TbClipboardList className='menu-item-icon' />
+                                    Thống kê</NavLink>
+                            </li>
+                            <li className='sidebar-menu-item'>
+                                
+                                <NavLink className={"sidebar-menu-item-nav"} to={"/manager/products"}>
+                                <TbClipboardList className='menu-item-icon' />
+                                    Quản lý sản phẩm</NavLink>
+                            </li>
+                            <li className='sidebar-menu-item'>
+                                <NavLink className={"sidebar-menu-item-nav"} to={"/manager/categories"}>
+                                <TbClipboardList className='menu-item-icon' />
+                                    
+                                    Danh mục </NavLink>
+                            </li>
+                            <li className='sidebar-menu-item'>
+                                <NavLink className={"sidebar-menu-item-nav"} to={"/manager/orders"}>
+                                <TbClipboardList className='menu-item-icon' />
+                                    Quản lý đơn hàng</NavLink>
+                            </li>
+                            <li className='sidebar-menu-item'>
+                                <NavLink className={"sidebar-menu-item-nav"} to={"/manager/orders"}>
+                                <TbClipboardList className='menu-item-icon' />
+                                    Quản lý tài khoản</NavLink>
                             </li>
                         </ul>
                         <hr />
                     </div>
                     <div className='sidebar-footer'>
-                    <p className='sidebar-footer-title'>Hệ thống</p>
+                        <p className='sidebar-footer-title'>Hệ thống</p>
                         <ul className='sidebar-menu'>
                             <li className='sidebar-menu-item'>
                                 <TbClipboardList className='menu-item-icon' />
-                                <NavLink className={"sidebar-menu-item-nav"} to={"#"}>Thông tin</NavLink>
+                                <NavLink className={"sidebar-menu-item-nav"} to={"/profile"}>Thông tin</NavLink>
                             </li>
                             <li className='sidebar-menu-item'>
                                 <BiLogOut className='menu-item-icon' />
-                                <NavLink className={"sidebar-menu-item-nav"} to={"#"}>Đăng xuất</NavLink>
+                                <NavLink className={"sidebar-menu-item-nav"} to={"logout#"}>Đăng xuất</NavLink>
                             </li>
                         </ul>
                     </div>

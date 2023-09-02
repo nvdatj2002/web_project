@@ -20,6 +20,7 @@
 
 .header-search {
     height: 40px;
+    width: 100%;
     border: 1px solid #3333;
     display: flex;
     align-items: center;
@@ -35,9 +36,6 @@
     align-items: center;
 }
 
-.header-search-icon {
-    width: 60px;
-}
 
 .header-search--input {
     width: 100%;

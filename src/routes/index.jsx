@@ -3,7 +3,8 @@ import Product from '../page/Products'
 import Dashboard from "../page_manager/Dashboard";
 import ManagerProduct from "../page_manager/manage_products";
 import ProductCreate from "../page_manager/manage_products/ProductCreate";
-
+import ProductDetail from "../page_manager/manage_products/ProductDetail";
+import ManagerCategory from "../page_manager/manager_category";
 // cho phép truy cập khi chưa đăng nhập
 const publicRoutes = [
     {
@@ -25,7 +26,13 @@ const privateRoutes = [
     },
     {
         path: '/manager/products/create', component: ProductCreate,
-    }
+    },
+    {
+        path: '/manager/products/detail/:id', component: ProductDetail,
+    },
+    {
+        path: '/manager/categories', component: ManagerCategory,
+    },
 ]
 
 export { publicRoutes, privateRoutes };

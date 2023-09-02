@@ -12,12 +12,12 @@ function Header() {
         <div className='header'>
             <div className='header-container'>
                 <div className="header-left">
-                    <div className="header-search">
+                    {/* <div className="header-search">
                         <form className="header-search-body">
                             <BsSearch className='header-search-icon' fontSize={24} />
                             <input name='search' className="header-search--input" placeholder='Tìm kiếm...' type="text" />
                         </form>
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="header-right">
