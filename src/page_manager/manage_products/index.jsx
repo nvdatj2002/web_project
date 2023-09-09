@@ -56,7 +56,7 @@ function ManagerProduct() {
     }
 
 
-    const handelOnchangeCategory = async (e) => {
+    const handleOnchangeCategory = async (e) => {
         const idC = e.target.value;
         setCategory(idC)
         if (idC == '' && typeProduct) {
@@ -296,7 +296,7 @@ function ManagerProduct() {
                             <Col xl={3} className='header-start-body-item'>
                                 <p className='header-start-category-title'>Loại sản phẩm</p>
                                 <select className='header-start-category' name='category'
-                                    onChange={handelOnchangeCategory}
+                                    onChange={handleOnchangeCategory}
                                 >
                                     <option value={''}>
                                         Tất cả
