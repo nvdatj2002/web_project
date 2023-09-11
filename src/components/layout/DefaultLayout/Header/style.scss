@@ -75,7 +75,7 @@
 }
 
 .nav-menu ul li {
-    font-weight: 600;
+    font-weight: 400;
     padding: 0 20px;
     font-size: 14px;
 
@@ -111,9 +111,13 @@
 }
 .nav-right {
     padding-left: 30px;
+     >ul {
+        display: flex;
+     }
 }
 .bCart {
     background: #fff;
     border: none;
     cursor: pointer;
+    width: 20px;
 }

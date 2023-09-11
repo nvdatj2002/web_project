@@ -61,7 +61,7 @@ function ProductDetail() {
         }
     }
 
-    const handelAddRow = async () => {
+    const handleAddRow = async () => {
 
         if (size == '') {
             alert('Nhập đầy đủ thông tin phân loại')
@@ -86,7 +86,7 @@ function ProductDetail() {
         setQuantity('')
     }
 
-    const handelImage = async (e) => {
+    const handleImage = async (e) => {
 
         const file = e.target.files[0]
         const formData = new FormData();
@@ -111,7 +111,7 @@ function ProductDetail() {
     }
 
 
-    const handelDeleteImage = async (idImage) => {
+    const handleDeleteImage = async (idImage) => {
         const response = await callAPI(`/api/image/delete/${idImage}`, "DELETE")
 
         const responseProduct = await callAPI(`/api/product/detail/${id}`, "GET");
@@ -176,7 +176,7 @@ function ProductDetail() {
                                                 <Button variant='danger'>
                                                     <MdDeleteOutline /></Button>
                                                 <Button onClick={() => {
-                                                    handelDeleteImage(item.id)
+                                                    handleDeleteImage(item.id)
                                                 }} variant='danger'> <MdDeleteOutline /></Button>
                                             </div>
                                         </div>
@@ -190,7 +190,7 @@ function ProductDetail() {
                                     <span className='lable-input-text' >chọn ảnh (.JPG hoặc .PNG)</span>
                                 </Form.Label>
                                 <Form.Control
-                                    type="file" name='file' hidden='hidden' onChange={handelImage} />
+                                    type="file" name='file' hidden='hidden' onChange={handleImage} />
                             </Form.Group>
                         </div>
                     </Row>
@@ -302,7 +302,7 @@ function ProductDetail() {
                                             </td>
 
                                             <td>
-                                                <Button onClick={handelAddRow} variant="primary" type="button">
+                                                <Button onClick={handleAddRow} variant="primary" type="button">
                                                     Thêm
                                                 </Button>
                                             </td>

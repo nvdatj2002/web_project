@@ -1,0 +1,166 @@
+.product-detail-body {
+    height: 100%;
+
+}
+
+.detail-product-left {}
+
+.image-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-title-item {
+    width: 500px;
+    height: 500px;
+}
+
+.image-detail {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.product-detail-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-detail-item {
+    width: 100px;
+    margin: 0 6px;
+    border: 0.5px solid #3333;
+    cursor: pointer;
+}
+
+.product-right-body {
+    font-size: 18px;
+}
+
+.detail-product-right {
+    height: 100%;
+    border-left: 0.5px solid #3333;
+    padding: 60px 50px;
+}
+
+.product-price {
+    font-size: 30px;
+    margin: 4px 0;
+}
+
+.detail-product-container {
+    height: 100% !important;
+    padding: 20px;
+}
+
+.detail-product-container-box {
+    margin-bottom: 50px;
+}
+
+.size-group {
+    margin: 10px 0;
+
+    >button {
+        height: 40px;
+        width: 40px;
+        margin: 0 6px;
+        font-size: 14px;
+        background-color: #fff;
+        border: 1px solid #3333;
+        color: #000;
+
+    }
+}
+
+.size-product {
+    display: flex;
+    padding: 10px 0;
+}
+
+.form-check {
+    padding: 0;
+    padding-right: 10px;
+
+    :hover {
+        border: 1px solid #ef6253;
+    }
+}
+
+.label-size {
+    padding: 6px 8px;
+    border: 0.5px solid #3333;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    border-radius: 8px;
+
+
+}
+
+.activeSize {
+    color: #ef6253;
+    border: 1px solid #ef6253;
+}
+
+.footer-detail-product {
+    margin-top: 16px;
+    display: grid;
+    column-gap: 6px;
+    row-gap: 4px;
+    grid-template-columns: auto auto;
+
+    :first-child {
+        background-color: #ef6253;
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    :nth-child(2) {
+        background-color: #d26e4b;
+        border: #d26e4b;
+
+    }
+
+    :nth-child(3) {
+        background-color: #41b979;
+        border: #41b979;
+    }
+}
+
+.footer--btn {
+    font-size: 18px;
+    height: 60px;
+
+}
+
+.description-area {
+
+    width: 80%;
+    margin: 0 auto;
+
+    >ul {
+        font-weight: 600;
+        justify-content: center;
+    }
+}
+
+.product-area {
+    width: 80%;
+    margin: 30px auto;
+
+    margin-top: 50px;
+
+}
+
+.product-title {
+    >h2 {
+        margin: 10px 0 !important;
+        font-weight: 600;
+    }
+}

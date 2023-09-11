@@ -17,6 +17,7 @@ import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useEffect, useState } from 'react'
+import CallAPI from '../../API/axios'
 
 
 
@@ -27,9 +28,8 @@ function Home() {
     const [timerSeconds, setTimerSeconds] = useState();
 
     let interval;
-
     const startTimer = () => {
-        const countDownDate = new Date("May 15 2023").getTime();
+        const countDownDate = new Date("september 30 2023").getTime();
         interval = setInterval(() => {
             const now = new Date().getTime();
 
@@ -42,7 +42,7 @@ function Home() {
 
             if (distance < 0) {
                 clearInterval(interval.current);
-            }else {
+            } else {
                 setTimerDays(days);
                 setTimerHours(hours);
                 setTimerMinutes(minutes);
@@ -50,10 +50,18 @@ function Home() {
             }
         })
     }
-    useEffect(()=>{
+    useEffect(() => {
         startTimer();
-    },[])
-    return (    
+    }, [])
+
+    const [products, setProducts] = useState([])
+
+    const fecthAPI = async ()  => {
+        const response = CallAPI("/api/product/getAll","GET")
+        setProducts(response.data)
+    }
+
+    return (
         <main className="main">
             {/* start banner area */}
             <div className="banner-area">
@@ -134,7 +142,7 @@ function Home() {
                 </div>
             </div>
             {/* end category area */}
-
+           
             {/* start product area */}
             <div className='product-area'>
                 <div className='product-area-container'>
@@ -440,7 +448,7 @@ function Home() {
                         <div className='left-content'>
                             <h1>Exclusive Hot Deal Ends Soon!</h1>
                             <p>Who are in extremely love with eco friendly system.</p>
-                            
+
                             <div className='clock'>
                                 <div className='Days clock-item'>
                                     <h1>{timerDays}</h1>
@@ -460,10 +468,10 @@ function Home() {
                                 </div>
                             </div>
                             <div className='deal-hot-nav'>
-                            <Link className='deal-hot-nav-item' to={"/"} >Xem ngay</Link>
+                                <Link className='deal-hot-nav-item' to={"/"} >Xem ngay</Link>
                             </div>
                         </div>
-                       
+
                     </div>
                     <div className='right-content'>
                         <Slider {...silderProductDeal}>

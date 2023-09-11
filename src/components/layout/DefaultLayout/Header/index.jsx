@@ -3,20 +3,50 @@ import './style.scss'
 import { useState } from "react";
 import { BsBag } from 'react-icons/bs'
 import { BiSearch } from 'react-icons/bi'
+import Search from "../Search";
+import Login from "../../../../page/Login";
 
 function Header() {
     const [header, setHeader] = useState(false);
-
+    const [show, setShow] = useState(false)
+    const [showLogin, setShowLogin] = useState(false)
     const changHeader = () => {
-        console.log(window.scrollY)
+
         if (window.scrollY >= 100) {
-            console.log("lớn hơn")
+
             setHeader(true);
         } else {
             setHeader(false);
         }
     }
     window.addEventListener('scroll', changHeader);
+
+    const Account = () => {
+        const account = JSON.parse(localStorage.getItem('user'))
+       
+        if (account) {
+            return (
+                <li>
+                    <NavLink to={"/info-user"}>
+                        {account.username}
+                    </NavLink>
+
+                </li>
+            )
+        } else {
+            return (
+                <li>
+                    <NavLink to={"/login"}>
+                        LOGIN
+                    </NavLink>
+                    <span> / </span>
+                    <NavLink to={"/register"}>
+                        REGISTER
+                    </NavLink>
+                </li>
+            )
+        }
+    }
 
     return (
         <header className={header ? "header-active" : "header "}>
@@ -34,7 +64,7 @@ function Header() {
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to={"/Product"}>
+                                    <NavLink to={"/shop"}>
                                         SHOP
                                     </NavLink>
                                 </li>
@@ -51,30 +81,27 @@ function Header() {
 
                             </ul>
                             <ul className="nav-right">
+                                <Account></Account>
                                 <li>
-                                    <NavLink to={"/"}>
-                                        LOGIN
-                                    </NavLink>
-                                        <span> / </span>
-                                    <NavLink to={"/"}>
-                                        REGISTER
+                                    <NavLink to={"/cart"}>
+                                        <BsBag fontSize={18} />
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink>
-                                        <BsBag fontSize={18}/>
-                                    </NavLink>
-                                </li>
-                                <li>
-                                    <button className="bCart" >
-                                        <BiSearch fontSize={18}/>
-                                    </button>
+
+                                    <BiSearch className="bCart" fontSize={18} onClick={
+                                        () => {
+                                            setShow(!show)
+                                        }} />
+
                                 </li>
                             </ul>
                         </nav>
                     </div>
                 </div>
             </div>
+            <Search show={show} handleClose={() => { setShow(false) }} placement={"end"} ></Search>
+
         </header>
     )
 }

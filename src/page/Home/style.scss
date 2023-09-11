@@ -100,7 +100,7 @@
     :hover .category-detail {
         display: block;
         top: 50%;
-
+        transition : display 2s
     }
 }
 
@@ -124,14 +124,16 @@
     width: 100%;
     position: absolute;
     text-align: center;
-    display: block;
+    display: none;
     top: 100%;
     transition: top 1s;
     color: #fff;
+    
 }
 
 .category-area-content-grid p {
     text-align: center;
+   
 }
 
 // end css category area
