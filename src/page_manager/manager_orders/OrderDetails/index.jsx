@@ -1,10 +1,11 @@
 import CurrencyFormat from 'react-currency-format';
 import './style.scss'
 import { Button, Col, Container, Modal, Row, Table } from "react-bootstrap";
+import callAPI from '../../../API/axios';
 
-function OrderDetail({ show, handleClose, order }) {
+function OrderDetail({ show, handleClose, order, onReload }) {
     const getTotal = (orderDetails) => {
-        if(orderDetails == null){
+        if (orderDetails == null) {
             return 0;
         }
         let total = 0
@@ -13,6 +14,90 @@ function OrderDetail({ show, handleClose, order }) {
         })
         return total
     }
+    const handelConfirmOrder = async () => {
+        const response = await callAPI(`/api/order/update/${item.id}?status=2`, 'PUT')
+
+        onReload({
+            action: true
+        })
+
+    }
+    const handleCancelOrder = async () => {
+        const response = await callAPI(`/api/order/update/${item.id}?status=5`, 'PUT')
+        onReload({
+            action: true
+        })
+    }
+    const handleSentOrder = async () => {
+        const response = await callAPI(`/api/order/update/${item.id}?status=3`, 'PUT')
+        onReload({
+            action: true
+        })
+    }
+
+    const handleReceivedOrder = async () => {
+        const response = await callAPI(`/api/order/update/${item.id}?status=4`, 'PUT')
+        onReload({
+            action: true
+        })
+    }
+    const ButtonAction = ({ status, item }) => {
+        switch (status) {
+            case 1: {
+                return (
+                    <>
+                        <Button onClick={() => {
+                            handelConfirmOrder
+                        }} type='button' className='order-btn-action' variant="primary">Nhận đơn
+                        </Button>
+                        <Button onClick={() => {
+                            handleCancelOrder(item.id)
+                        }} className='order-btn-action' variant="danger"> Huỷ đơn</Button>
+                        <Button onClick={() => {
+                            handleClose()
+                        }} className='order-btn-action' variant="danger"> Đóng</Button>
+                    </>
+                )
+            } case 2: {
+                return (
+                    <>
+
+                        <Button onClick={() => {
+                            handleSentOrder
+                        }} className='order-btn-action' variant="success"> Giao hàng</Button>
+                        <Button onClick={() => {
+                            handleClose()
+                        }} type='button' className='order-btn-action' variant="danger">Đóng
+                        </Button>
+                    </>
+                )
+            } case 3: {
+                return (
+                    <>
+                        <Button onClick={() => {
+                            handleReceivedOrder
+                        }} className='order-btn-action' variant="success"> Đã nhận</Button>
+                        <Button onClick={() => {
+                            handleClose()
+                        }} type='button' className='order-btn-action' variant="danger">Đóng
+                        </Button>
+                    </>
+                )
+            }
+            default: {
+                return (
+                    <>
+                        <Button onClick={() => {
+                            handleClose()
+                        }} type='button' className='order-btn-action' variant="danger">Đóng
+                        </Button>
+                    </>
+                )
+            }
+        }
+
+    }
+
     return (
         <Container>
             <Modal
@@ -96,10 +181,7 @@ function OrderDetail({ show, handleClose, order }) {
 
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button className='btn-submit-order-detail' type='submit' variant="success">Lưu lại</Button>
-                    <Button className='btn-submit-order-detail' variant="danger" onClick={handleClose}>
-                        Close
-                    </Button>
+                    <ButtonAction item={order} status={order?.listStatusOrders?.status?.id} />
                 </Modal.Footer>
 
             </Modal >

@@ -1,10 +1,12 @@
 .table-container {
     margin-top: 20px;
 }
-
+.header-start-body {
+    height: 42px;
+}
 .order-type {
     margin-top: 10px;
-    height: 60px;
+    height: 40px;
     border: .5px solid #3333;
     background-color: #fff;
     .order-type-item {
@@ -13,10 +15,23 @@
         align-items: center;
         
         > button {
-            height: 40px;
+            height: 28px;
             min-width: 120px;
             font-size: 14px;
             margin-right: 20px;
         }
     }
+}
+.header-start-category-title--input {
+    width: 320px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 0.5px solid #3333;
+}
+.order-btn-action {
+    width: 80px !important;
+    height: 36px;
+    margin: 0 6px;
+    font-size: 14px;
 }

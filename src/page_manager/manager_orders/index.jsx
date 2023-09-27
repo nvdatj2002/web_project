@@ -4,8 +4,9 @@ import { Button, Col, Container, Row, Table } from "react-bootstrap";
 import { BsSearch } from "react-icons/bs";
 import callAPI from '../../API/axios';
 import CurrencyFormat from 'react-currency-format';
-import { FaRegEdit } from 'react-icons/fa';
-import { MdDeleteOutline } from 'react-icons/md';
+import { BsCheckSquare } from 'react-icons/bs';
+import { MdDeleteOutline, MdOutlineCancel } from 'react-icons/md';
+import { TbFileDescription } from 'react-icons/tb'
 import OrderDetail from './OrderDetails';
 
 function ManagerOrders() {
@@ -14,9 +15,10 @@ function ManagerOrders() {
     const [status, setStatus] = useState([])
     const [isShow, setIsShow] = useState(false)
     const [type, setType] = useState(0)
+    const [isLoad, setIsLoad] = useState(false)
     useEffect(() => {
         fecthAPI()
-    }, [])
+    }, [isLoad])
 
     const fecthAPI = async () => {
         const responseOrders = await callAPI('/api/order/getAll', 'GET')
@@ -34,6 +36,7 @@ function ManagerOrders() {
         return total
     }
     const handelOpenEdit = (item) => {
+        console.log('edit')
         setIsShow(!isShow)
         setOrder(item)
     }
@@ -42,6 +45,75 @@ function ManagerOrders() {
         setOrders(response.data)
         setType(id)
     }
+    const handleCancelOrder = async (id) => {
+        const response = await callAPI(`/api/order/update/${id}?status=5`, 'PUT')
+        console.log(response)
+        const responseOrder = await callAPI(`/api/order/getAll?status=${type}`, 'GET')
+        alert('huỷ đơn hàng thành công')
+        setOrders(responseOrder.data)
+
+    }
+    const handleReload = ({ action }) => {
+        if (action) {
+            setIsLoad(!isLoad)
+        }
+    }
+
+    // component
+    const ButtonAction = ({ status, item }) => {
+        switch (status) {
+            case 1: {
+                return (
+                    <>
+                        <Button onClick={() => {
+                            handelOpenEdit(item)
+                        }} type='button' className='order-btn-action' variant="primary">Chi tiết
+                        </Button>
+                        <Button onClick={() => {
+                            handleCancelOrder(item.id)
+                        }} className='order-btn-action' variant="danger"> Huỷ đơn</Button>
+                    </>
+                )
+            } case 2: {
+                return (
+                    <>
+                        <Button onClick={() => {
+                            handelOpenEdit(item)
+                        }} type='button' className='order-btn-action' variant="primary"><TbFileDescription size={20} />
+                        </Button>
+                        <Button onClick={() => {
+                            handleCancelOrder(item.id)
+                        }} className='order-btn-action' variant="danger"> Giao hàng</Button>
+                    </>
+                )
+            } case 3: {
+                return (
+                    <>
+                        <Button onClick={() => {
+                            handelOpenEdit(item)
+                        }} type='button' className='order-btn-action' variant="primary"><TbFileDescription size={20} />
+                        </Button>
+                        <Button onClick={() => {
+                            handleCancelOrder(item.id)
+                        }} className='order-btn-action' variant="danger"> Đã nhận</Button>
+                    </>
+                )
+            }
+            default: {
+                return (
+                    <>
+                        <Button onClick={() => {
+                            handelOpenEdit(item)
+                        }} type='button' className='order-btn-action' variant="primary">Chi tiết
+                        </Button>
+
+                    </>
+                )
+            }
+        }
+
+    }
+
 
     return (
         <section>
@@ -64,19 +136,12 @@ function ManagerOrders() {
                             </form>
                         </Col>
                         <Col xl={3} className='header-start-body-item'>
-                            <p className='header-start-category-title'>Loại sản phẩm</p>
-                            <select className='header-start-category' name='category'
-
-                            >
-                                <option value={''}>
-                                    Tất cả
-                                </option>
-
-                            </select>
+                            <p className='header-start-category-title'>Sản phẩm: </p>
+                            <input className='header-start-category-title--input' type='date'></input>
                         </Col>
                         <Col xl={3} className='header-start-body-item'>
                             <p className='header-start-category-title'>Sản phẩm: </p>
-                            <input type='date'></input>
+                            <input className='header-start-category-title--input' type='date'></input>
                         </Col>
                     </Row>
                     <Row className='order-type'>
@@ -136,11 +201,7 @@ function ManagerOrders() {
                                                 <CurrencyFormat value={getTotal(item.orderDetails)} displayType={'text'} thousandSeparator={true} prefix={'$'}></CurrencyFormat>
                                             </td>
                                             <td>
-                                                <Button onClick={() => {
-                                                    handelOpenEdit(item)
-                                                }} type='button' variant="outline-primary"><FaRegEdit /></Button>
-                                                <Button variant="outline-primary">
-                                                    <MdDeleteOutline /></Button>
+                                                <ButtonAction item={item} status={item.listStatusOrders[item.listStatusOrders.length - 1].status.id} />
                                             </td>
                                         </tr>
                                     ))}
@@ -150,7 +211,7 @@ function ManagerOrders() {
                     </Row>
                 </Container>
             </div>
-            <OrderDetail show={isShow} handleClose={() => { setIsShow(false) }} order={order}></OrderDetail>
+            <OrderDetail show={isShow} handleClose={() => { setIsShow(false) }} order={order} onReload={handleReload}></OrderDetail>
         </section>
     );
 }
