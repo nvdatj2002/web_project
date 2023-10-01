@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import './style.scss'
 import { useState } from "react";
 import { BsBag } from 'react-icons/bs'
@@ -19,11 +19,11 @@ function Header() {
             setHeader(false);
         }
     }
-    window.addEventListener('scroll', changHeader);
+    // window.addEventListener('scroll', changHeader);
 
     const Account = () => {
         const account = JSON.parse(localStorage.getItem('user'))
-       
+
         if (account) {
             return (
                 <li>
@@ -49,58 +49,88 @@ function Header() {
     }
 
     return (
-        <header className={header ? "header-active" : "header "}>
-            <div className={header ? "container-header-active" : "container "}>
+        <header className={header ? "header-active" : "header"}>
+            <div className={header ? "container-header-active" : "container-header"}>
+                <div className="content-top">
+                    <div className="content-top-body">
+                        <div className="content-top-left">
+                            <p>
+                                Authentic Shoes - Nhà sưu tầm và phân phối chính hãng các thương hiệu thời trang quốc tế hàng đầu Việt Nam
+                            </p>
+                        </div>
+                        <div className="content-top-right">
+                            <Link to={'/login'}>
+                                Đăng nhập
+                            </Link>
+                        </div>
+                    </div>
+                </div>
                 <div className="content">
                     <div className="container-logo">
                         <img className="container-logo-img" src=""></img>
                     </div>
                     <div className="container-menu">
-                        <nav className="nav-menu">
-                            <ul>
-                                <li>
+                        <nav className="nav-forward">
+                            <ul className="nav-forward-item">
+                                <li >
                                     <NavLink to={"/"}>
-                                        HOME
+                                        Trang chủ
                                     </NavLink>
                                 </li>
-                                <li>
+                                <li className="shop">
                                     <NavLink to={"/shop"}>
-                                        SHOP
+                                        <span>Sản phẩm của chúng tôi</span>
+                                        <div className="menu-item">
+                                            <ul>
+                                                <li>
+                                                    Giày Nike
+                                                </li>
+                                                <li>
+                                                    Giày Adidas
+                                                </li>
+                                                <li>
+                                                    Giày Puma
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </NavLink>
                                 </li>
                                 <li>
                                     <NavLink to={"/"}>
-                                        BLOG
+                                        Tin tức
                                     </NavLink>
                                 </li>
                                 <li>
                                     <NavLink to={"/"}>
-                                        CONTACT
+                                        Liên hệ
                                     </NavLink>
                                 </li>
 
                             </ul>
-                            <ul className="nav-right">
-                                <Account></Account>
-                                <li>
-                                    <NavLink to={"/cart"}>
-                                        <BsBag fontSize={18} />
-                                    </NavLink>
-                                </li>
-                                <li>
 
-                                    <BiSearch className="bCart" fontSize={18} onClick={
-                                        () => {
-                                            setShow(!show)
-                                        }} />
-
-                                </li>
-                            </ul>
                         </nav>
+                    </div>
+                    <div className="option">
+                        <ul className="nav-option">
+
+                            <li>
+                                <NavLink to={"/cart"}>
+                                    <BsBag fontSize={18} />
+                                </NavLink>
+                            </li>
+                            <li>
+
+                                <BiSearch className="bCart" fontSize={18} onClick={
+                                    () => {
+                                        setShow(!show)
+                                    }} />
+
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <Search show={show} handleClose={() => { setShow(false) }} placement={"end"} ></Search>
+            <Search className="bCart" show={show} handleClose={() => { setShow(false) }} placement={"end"} ></Search>
 
         </header>
     )

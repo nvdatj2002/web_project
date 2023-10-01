@@ -42,7 +42,7 @@ function Purchase() {
         setOrders(response.data)
         setViewStatus(id)
     }
-
+    console.log(orders)
     return (
         <Col>
             <div className="purchase-content">
@@ -75,15 +75,14 @@ function Purchase() {
                                 <p>Lúc đặt : {item.dateAt}</p>
                             </div>
                             <div className='purchase-body-top-left'>
-                                <p>Trạng thái: <span>{item?.listSaStatusOrders[item.listSaStatusOrders.length - 1].status.name}</span></p>
+                                <p>Trạng thái: <span>{item.listStatusOrders[item.listStatusOrders.length - 1].status.name}</span></p>
                             </div>
                         </div>
                         <hr />
-                        {item.orderDetails.map((orderDetail) => (
-
+                        {item?.orderDetails.map((orderDetail) => (
                             <div key={orderDetail.id} className='purchase-body-mid'>
                                 <div className='purchase-body-mid-right'>
-                                    <img src={`http://localhost:8080/api/files/${orderDetail.productOrder.imageProduct[0].name
+                                    <img src={`http://localhost:8080/api/files/${orderDetail?.productOrder.imageProduct[0].name
                                         }`} className='purchase-body-mid-right--image'></img>
                                     <div className='purchase-detail-product'>
                                         <p className='purchase-detail-product--name'>Tên sản phẩm: <b>{orderDetail.productOrder.name}</b></p>
@@ -105,13 +104,13 @@ function Purchase() {
                                 </p>
                                 <div className='purchase-body-bot-box-button'>
                                     <Button variant='outline-success'>Chi tiết</Button>
-
-                                    {item?.listSaStatusOrders[item.listSaStatusOrders.length - 1].status.id == 1
+                                  
+                                    {item?.listStatusOrders[item.listStatusOrders.length - 1]?.status.id == 1
                                         &&
                                         <Button onClick={() => {
                                             handleCanelOrder(item.id)
                                         }} variant='danger'>Huỷ</Button>
-                                    }
+                                    } 
 
                                 </div>
                             </div>
