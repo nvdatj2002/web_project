@@ -1,13 +1,33 @@
 .header {
     width: 100%;
-    position: absolute;
-
+    // position: absolute;
     align-items: center;
     z-index: 999;
     transition: top .5s ease-in;
     background-color: #fff;
-    height: 140px;
+    height: 120px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    line-height: 120px;
+}
+
+.header-container {
+    display: flex;
+    // justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.header-left {
+    width: 200px;
+
+    >a {
+        color: #000;
+    }
+}
+
+.header-mid {
+    flex: 1;
 }
 
 .content-top {
@@ -103,27 +123,60 @@
     margin: 0;
 }
 
+.nav-forward {
+    ul {
+        >li {
+            >a {
+                text-decoration: none;
+                color: #333;
+                display: block;
+                height: 120px;
+            }
+        }
+    }
+}
+
 .nav-forward-item {
     >li {
-
         font-weight: 500;
         padding: 0 20px;
-        font-size: 18px;
-        line-height: 100px;
-
+        font-size: 16px;
     }
 
-    :hover {
-        color: #f80;
-        opacity: 0.6;
+    :hover {}
+}
+
+.shop {
+    position: relative;
+
+    >:hover {
+        .menu-item {
+            display: block;
+
+            >li {
+                >:hover {
+                    color: #f80;
+                }
+            }
+        }
     }
 }
 
-.nav-forward ul li a {
-    text-decoration: none;
-    color: #333;
-}
+.menu-item {
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    top: 120px;
+    display: none;
 
+    >ul {
+
+        >li {
+            line-height: 40px !important;
+        }
+    }
+}
 .header-active {
     top: 0 !important;
     position: fixed;
@@ -144,19 +197,18 @@
     border-radius: 2px;
     transition: width .5s ease-out;
 }
-
-.option {
-    width: 140px;
+.header-right {
+    width: 200px;
+    height: 120px;
 }
+
 
 .nav-option {
     display: flex;
     padding-left: 30px;
     justify-content: space-around;
-
     >li {
         >a {
-
             color: #000;
         }
     }
@@ -169,21 +221,4 @@
     width: 20px;
 }
 
-.shop {
-    position: relative;
-}
 
-.menu-item {
-    position: absolute;
-    background-color: #fff;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    width: 800px;
-    top: 0;
-
-    >ul {
-
-        >li {
-            line-height: 40px !important;
-        }
-    }
-}

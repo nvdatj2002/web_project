@@ -64,18 +64,18 @@ function Home() {
     return (
         <main className="main">
             {/* start banner area */}
-            <div className="banner-area">
-                <div className='container-banner'>
-                    <div className='banner-content'>
-                        <h1>Nike New <br></br>Collection!</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                    </div>
-                    <div className='banner-img'>
-                        <img src={bi} alt='Product banner' />
+                <div className="banner-area">
+                    <div className='container-banner'>
+                        <div className='banner-content'>
+                            <h1>Nike New <br></br>Collection!</h1>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+                        </div>
+                        <div className='banner-img'>
+                            <img src={bi} alt='Product banner' />
+                        </div>
                     </div>
                 </div>
-            </div>
             {/* end banner area */}
 
             {/* start features area */}
